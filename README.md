@@ -24,7 +24,7 @@ Si se genera un archivo `.zip` asegúrate de descomprimirlo antes de usar el cua
 
 1. Abre el notebook en Colab con este botón:
 
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu-usuario/sirviendo-te/blob/main/notebooks/Sirviendo_te_es.ipynb)
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cfusterbarcelo/Sirviendo-Te/blob/main/notebooks/Sirviendo_te_es.ipynb)
 
 2. Sube el archivo `.txt` exportado del chat cuando se te pida
 3. ¡Relájate y disfruta del análisis! Verás:
