@@ -90,3 +90,47 @@ def plot_frecuencias(counter, lang='es'):
     plt.grid(axis='x', linestyle='--', alpha=0.6)
     plt.tight_layout()
     plt.show()
+
+def construir_stopwords(extra=None, idioma='es'):
+    """
+    Construye un conjunto de stopwords combinando:
+    - STOPWORDS por defecto de WordCloud
+    - Palabras comunes adicionales por idioma
+    - Lista personalizada de palabras (opcional)
+    """
+
+    # Stopwords personalizadas por idioma
+    stopwords_es = {
+        'que', 'de', 'y', 'el', 'la', 'lo', 'los', 'las', 'en', 'es', 'un', 'una', 'por', 'con',
+        'yo', 'tú', 'tu', 'te', 'me', 'mi', 'ya', 'sí', 'no', 'al', 'se', 'les', 'le', 'del',
+        'este', 'ese', 'eso', 'aquí', 'allí', 'ahí', 'porque', 'pues', 'más', 'muy', 'para',
+        'voy', 'estoy', 'está', 'estás', 'estamos', 'he', 'ha', 'has', 'hay', 'hacer', 'ser',
+        'va', 'vamos', 'todo', 'nada', 'también', 'igual', 'pero', 'solo', 'bien', 'como', 'cuando',
+        'donde', 'ni', 'sí', 'o', 'u', 'vale', 'https', 'tengo', 'tener', 'hoy', 'mañana', 'ahora',
+        'luego', 'sisi', 'oye', 'ver', 'dice', 'dijo', 'da', 'nos', 'nosotros',
+        'solo', 'puede', 'puedo', 'puedes', 'quiere', 'quieren', 'aunque', 'eso', 'buenas',
+        'jajajaja', 'jajaja', 'jaja', 'ajaja', 'xd', 'lol', 'bua', 'uff', 'aja',
+        'sii', 'siii', 'siiii', 'ok', 'ajajaja', 'ajajaj', 'jssjs', 'jjaja', 'ajja',
+        'gracias', 'vida', 'mmm', 'wtf', 'tía', 'tia', 'ufff', 'eh', 'ajá'
+    }
+
+    stopwords_ca = {
+        'que', 'de', 'i', 'el', 'la', 'les', 'els', 'en', 'un', 'una', 'per', 'amb',
+        'jo', 'tu', 'te', 'em', 'ja', 'sí', 'no', 'al', 'es', 'del', 'més', 'molt',
+        'quan', 'com', 'perquè', 'doncs', 'bé', 'també', 'res', 'tot', 'cap', 'fins',
+        'algun', 'alguna', 'allò', 'això', 'aquí', 'allà', 'ara', 'després',
+        'tenir', 'està', 'estic', 'estem', 'ha', 'he', 'han', 'hi', 'ser', 'pot',
+        'només', 'fer', 'tampoc', 'val', 'https', 'gràcies', 'jajaja', 'jaja', 'jeje',
+        'xd', 'lol', 'siii', 'sisplau', 'pixar', 'buah', 'ai', 'eh', 'uau'
+    }
+
+    # Elegir set base según idioma
+    base = stopwords_es if idioma == 'es' else stopwords_ca
+
+    # Unir con las de WordCloud y las extra
+    total = STOPWORDS.union(base)
+
+    if extra:
+        total = total.union(set(extra))
+
+    return total
