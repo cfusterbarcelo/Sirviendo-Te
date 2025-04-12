@@ -47,5 +47,5 @@ Puedes usarlo y modificarlo, pero no con fines comerciales.
 
 ## ✨ Autora
 
-Hecho con 💜 por [Caterina Fuster-Barceló]
+Hecho con 💜 por [Caterina Fuster-Barceló](https://cfusterbarcelo.github.io/)
 ¿Te gusta el proyecto? ⭐ ¡Guárdalo en tu GitHub o compártelo con tus amigxs!
