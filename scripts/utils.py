@@ -1,11 +1,13 @@
+from collections.abc import Iterable
+from typing import Optional
 import pandas as pd
 import re
 import unicodedata
 from collections import Counter
-from wordcloud import WordCloud
+from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
-def cargar_chat(lines):
+def cargar_chat(lines: Iterable[str]) -> pd.DataFrame:
     """
     Parsea líneas de un chat WhatsApp con formato tipo:
     [30/11/23 18:32:05] Nombre: mensaje
@@ -25,7 +27,7 @@ def cargar_chat(lines):
             })
     return pd.DataFrame(data)
 
-def limpiar_mensajes(df):
+def limpiar_mensajes(df: pd.DataFrame) -> pd.DataFrame:
     """
     Limpia frases comunes de sistema en español/catalán.
     """
@@ -39,15 +41,15 @@ def limpiar_mensajes(df):
         df['Mensaje'] = df['Mensaje'].str.replace(pattern, replacement, regex=True)
     return df
 
-def normalizar(texto):
+def normalizar(texto: str) -> str:
     """
     Pasa texto a minúsculas y quita tildes/acentos.
     """
     texto = texto.lower()
     texto = unicodedata.normalize('NFD', texto)
-    return texto.encode('ascii', 'ignore').decode("utf-8")
+    return texto.encode('ascii', 'ignore').decode('utf-8')
 
-def generar_wordcloud(df, stopwords, title=''):
+def generar_wordcloud(df: pd.DataFrame, stopwords: Optional[set[str]], title='') -> None:
     """
     Genera y muestra una WordCloud a partir del DataFrame de mensajes.
     """
@@ -61,12 +63,12 @@ def generar_wordcloud(df, stopwords, title=''):
     ).generate(texto)
     plt.figure(figsize=(8, 8), facecolor=None)
     plt.imshow(wc, interpolation='bilinear')
-    plt.axis("off")
+    plt.axis('off')
     plt.title(title)
     plt.tight_layout(pad=0)
     plt.show()
 
-def contar_ocurrencias(df, palabras_objetivo):
+def contar_ocurrencias(df: pd.DataFrame, palabras_objetivo: Iterable[str]) -> Counter:
     """
     Cuenta cuántas veces aparece cada palabra objetivo (normalizadas).
     """
@@ -76,7 +78,7 @@ def contar_ocurrencias(df, palabras_objetivo):
     filtradas = [p for p in palabras if p in palabras_objetivo]
     return Counter(filtradas)
 
-def plot_frecuencias(counter, lang='es'):
+def plot_frecuencias(counter: Counter, lang='es') -> None:
     labels = {
         'es': {'word': 'Palabra', 'freq': 'Frecuencia', 'title': 'Frecuencia de palabras'},
         'ca': {'word': 'Paraula', 'freq': 'Freqüència', 'title': 'Freqüència de paraules'}
@@ -91,7 +93,7 @@ def plot_frecuencias(counter, lang='es'):
     plt.tight_layout()
     plt.show()
 
-def construir_stopwords(extra=None, idioma='es'):
+def construir_stopwords(extra: Optional[Iterable[str]] = None, idioma='es') -> set[str]:
     """
     Construye un conjunto de stopwords combinando:
     - STOPWORDS por defecto de WordCloud
