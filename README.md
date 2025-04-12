@@ -1,10 +1,10 @@
 # ☕ Sirviendo-Té
 
-**Analiza tus chats de WhatsApp en Google Colab sin saber programar.**  
+**Analiza tus chats de WhatsApp en Google Colab sin saber programar.**
 Sube tu archivo, haz clic en unos botones... ¡y deja que los datos hablen! 🫖
 
 
-> 📣 **Atenció**: Aquest projecte també estarà disponible en **català** ben prest.  
+> 📣 **Atenció**: Aquest projecte també estarà disponible en **català** ben prest.
 > Estic treballant en una versió 100% en català perquè tothom pugui xafardejar el seu xat! 🫶
 
 ---
@@ -38,7 +38,7 @@ Si se genera un archivo `.zip` asegúrate de descomprimirlo antes de usar el cua
 
 ## 🧾 Licencia
 
-Este proyecto está bajo la licencia [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).  
+Este proyecto está bajo la licencia [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
 Puedes usarlo y modificarlo, pero no con fines comerciales.
 
 [![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc/4.0/)
@@ -47,5 +47,5 @@ Puedes usarlo y modificarlo, pero no con fines comerciales.
 
 ## ✨ Autora
 
-Hecho con 💜 por [Caterina Fuster-Barceló]  
+Hecho con 💜 por [Caterina Fuster-Barceló]
 ¿Te gusta el proyecto? ⭐ ¡Guárdalo en tu GitHub o compártelo con tus amigxs!
